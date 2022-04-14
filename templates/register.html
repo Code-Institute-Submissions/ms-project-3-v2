@@ -4,30 +4,31 @@
 <h3 class="center-align blue-grey-text">Register</h3>
 
 <div class="row">
+
   <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register') }}">
     <div class="card-panel">
-        <!-- username -->
-        <div class="row">
-          <div class="input-field col s12">
-              <i class="material-icons prefix blue-grey-text">person_add</i>
-              <input id="username" name="username" type="text" class="validate" minlength="5"
-                maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required>
-              <label for="username">Username</label>
-          </div>
+      <!-- username -->
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix blue-grey-text">person_add</i>
+          <input id="username" name="username" type="text" class="validate" minlength="5"
+            maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required>
+          <label for="username">Username</label>
         </div>
-        <!-- password -->
-        <div class="row">
-          <div class="input-field col s12">
-            <i class="material-icons prefix blue-grey-text">lock</i>
-            <input id="password" type="password" name="password" class="validate" minlength="5"
-              maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required>
-            <label for="password">Password</label>
-          </div>
+      </div>
+      <!-- password -->
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix blue-grey-text">lock</i>
+          <input id="password" type="password" name="password" class="validate" minlength="5"
+            maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required>
+          <label for="password">Password</label>
         </div>
-        <!-- register -->
-        <div class="row">
-          <button type="submit" class="col s12 btn-large waves-effect waves-light">Register</button>
-        </div>
+      </div>
+      <!-- register -->
+      <div class="row">
+        <button type="submit" class="col s12 btn-large waves-effect waves-light">Register</button>
+      </div>
     </div>
   </form>
 </div>
