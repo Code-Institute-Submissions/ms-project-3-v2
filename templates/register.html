@@ -2,12 +2,18 @@
 {% block content %}
 
 <div class="row">
-    <div class="col s12 m5">
-      <div class="card-panel teal">
-        <span class="white-text">TEST
-        </span>
+    <form class="col s12 m8 offset-m2">
+      <div class="card-panel teal lighten-2">
+          <!-- username -->
+          <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix blue-grey-text">add_person</i>
+                <input id="username" name="username" type="text" class="validate">
+                <label for="username">Username</label>
+            </div>
+          </div>
       </div>
-    </div>
+    </form>
 </div>
 
 {% endblock %}
