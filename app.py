@@ -66,6 +66,11 @@ def login():
                 # invalid password match
                 flash("Incorrect Username and Password combination")
                 return redirect(url_for("login"))
+        else:
+            # username doesn't exist
+            flash("Incorrect Username and Password combination")
+            return redirect(url_for("login"))
+
     return render_template("login.html")
 
 
