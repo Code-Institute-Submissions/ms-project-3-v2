@@ -51,6 +51,15 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    if request.method == "POST":
+        # check if username exists in db
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if existing_user:
+            flash("Welcome, {}".format(request.form.get("username")))
+        else:
+            flash("Incorrect Username and Password combination")
     return render_template("login.html")
 
 
