@@ -10,6 +10,31 @@
     <title>Easy Cooking</title>
 </head>
 <body>
+    <header>
+        <!--Materialize top navbar-->
+        <nav>
+            <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">Easy Cooking</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Register</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+            </div>
+        </nav>
+        
+        <!--Materialize mobile sidenav-->
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Register</ca></li>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </header>
 
     {% block content %}
     {% endblock %}
