@@ -10,3 +10,35 @@
     border:0;
 }
 
+
+/* --------------- carousel on recipes.html */
+
+.border {
+    border-style: solid;
+    border-width: 2px;
+    color: teal !important;
+}
+
+.carousel {
+    height: 700px;
+    margin-top: -200px;
+  }
+
+.carousel .carousel-item {
+    width: auto;
+    height: 200px;
+}
+
+/*https://community.adobe.com/t5/dreamweaver-discussions/bootstrap-carousel-how-to-size-images/m-p/9481806*/
+
+#carousel-img {
+    width: auto;
+    height: 200px;
+    max-height: 200px;
+}
+
+/*https://stackoverflow.com/questions/36996041/remove-opacity-from-carousel-images-in-materialize-design*/
+
+.carousel .carousel-item {
+    opacity: 1 !important;
+}
