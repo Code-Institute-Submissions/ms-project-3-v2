@@ -1,0 +1,12 @@
+/* -------------------------- Global style */
+
+/*google fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+
+/*remove default margin, padding and border*/
+* {
+    margin:0;
+    padding:0;
+    border:0;
+}
+
