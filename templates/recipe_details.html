@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container">
+        <!-- recipe name -->
+        <h3 class="center-align blue-grey-text">Recipe Name goes here</h3>
+        <div class="row">
+            <div class="col s12">
+                <div class="row">
+                    <div class="col s12 m6">
+                        <div class="row">
+                            <!--recipe image placeholder-->
+                            <div class="col s12">
+                                <div class="card">
+                                    <div class="card-image">
+                                    <img src="{{url_for('static', filename='images/no-image.jpg')}}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m6">
+                        <!-- recipe category -->
+                        <div class="row">
+                            <div class="col s12 m10 offset-m1">
+                                <div class="row">
+                                    <div class="col s2">
+                                        <i class="material-icons prefix">folder_open</i>
+                                    </div>
+                                    <div class="col s10">
+                                        <h6 class="teal-text"><strong>Category:</strong></h6>
+                                        <p>Recipe category goes here</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- recipe difficulty level -->
+                        <div class="row">
+                            <div class="col s12 m10 offset-m1">
+                                <div class="row">
+                                    <div class="col s2">
+                                        <i class="material-icons prefix">folder_open</i>
+                                    </div>
+                                    <div class="col s10">
+                                        <h6 class="teal-text"><strong>Difficulty:</strong></h6>
+                                        <p>Recipe difficulty goes here</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- recipe author -->
+                        <div class="row">
+                            <div class="col s12 m10 offset-m1">
+                                <div class="row">
+                                    <div class="col s2">
+                                        <i class="material-icons prefix">person</i>
+                                    </div>
+                                    <div class="col s10">
+                                        <h6 class="teal-text"><strong>Added by:</strong></h6>
+                                        <p>Recipe author goes here</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- recipe ingredients -->
+                    <div class="col s12 m6">
+                        <div class="row">
+                            <div class="col s2">
+                                <i class="material-icons prefix">shopping_cart</i>
+                            </div>
+                            <div class="col s10">
+                                <h6 class="teal-text"><strong>Ingredients:</strong></h6>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <ul>
+                                        <li>Ingredient items go here</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                       
+                    <!-- recipe cooking method -->
+                    <div class="col s12 m6">
+                        <div class="row">
+                            <div class="col s2">
+                                <i class="material-icons prefix">restaurant</i>
+                            </div>
+                            <div class="col s10">
+                                <h6 class="teal-text"><strong>Cooking method:</strong></h6>
+                            </div>
+                            <div class="row">
+                                <div class="div">
+                                    <ol>
+                                        <li>Cooking steps go here</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
