@@ -94,8 +94,19 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/add_recipe")
+@app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
+    if request.method == "POST":
+        recipe = {
+            "recipe_name": request.form.get("recipe_name"),
+            "category_name": request.form.get("category_name"),
+            "difficulty_level": request.form.get("difficulty_level"),
+            "ingredients": request.form.getlist("ingredients"),
+            "method": request.form.getlist("method"),
+            "added_by": session["user"]
+        }
+        mongo.db.recipes.insert_one(recipe)
+        return redirect(url_for("get_tasks"))
 
     # wire-up data from Categories and Difficulty Levels collections on MongoDB
     categories = mongo.db.categories.find()
