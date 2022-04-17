@@ -106,7 +106,7 @@ def add_recipe():
             "added_by": session["user"]
         }
         mongo.db.recipes.insert_one(recipe)
-        return redirect(url_for("get_tasks"))
+        return redirect(url_for("get_recipes"))
 
     # wire-up data from Categories and Difficulty Levels collections on MongoDB
     categories = mongo.db.categories.find()
