@@ -2,83 +2,82 @@
 {% block content %}
     <div class="container">
         <h3 class="center-align blue-grey-text">Add Recipe</h3>
-    
         <div class="row">
             <!-- enctype="multipart/form-data" is required for file upload-->
             <form class="col s12"  method ="POST" action="{{ url_for('add_recipe') }}" enctype="multipart/form-data">
-                <!-- recipe name -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">create</i>
-                        <input id="recipe_name" type="text" name="recipe_name" class="validate" required>
-                        <label for="recipe_name">Recipe Name</label>
-                    </div>
-                </div>
-                <!-- recipe category -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">folder_open</i>
-                        <select id="category_name" name="category_name" class="validate" required>
-                            <option value="" disabled selected>Select Category</option>
-                                {% for category in categories %}
-                                    <option value="{{ category.category_name}}">{{ category.category_name}}</option>
-                                {% endfor %}
-                        </select>
-                        <label>Recipe Category</label>
-                    </div>
-                </div>
-                <!-- recipe difficulty level -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">folder_open</i>
-                        <select id="difficulty_level" name="difficulty_level" class="validate" required>
-                            <option value="" disabled selected>Select Difficulty Level</option>
-                                {% for difficulty_level in difficulty_levels %}
-                                    <option value="{{ difficulty_level.difficulty_level}}">{{ difficulty_level.difficulty_level }}</option>
-                                {% endfor %}
-                        </select>
-                        <label for="difficulty_level">Difficulty</label>
-                    </div>
-                </div>
-                <!-- recipe ingredients -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">shopping_cart</i>
-                        <textarea id="ingredients" name="ingredients" class="materialize-textarea validate" required></textarea>
-                        <label for="ingredients">Ingredients</label>
-                        <p class="teal-text">Important! Please enter each ingredient on a new line</p>
-                    </div>
-                </div>
-                <!-- recipe cooking method -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">restaurant</i>
-                        <textarea id="method" name="method" class="materialize-textarea validate" required></textarea>
-                        <label for="method">Cooking method</label>
-                        <p class="teal-text">Important! Please enter each step on a new line</p>
-                    </div>
-                </div>
-                <!--recipe image placeholder-->
                 <div class="row">
                     <div class="col s12 m6">
-                        <div class="card">
-                            <div class="card-image">
-                              <img src="{{url_for('static', filename='images/no-image.jpg')}}">
+                        <div class="row">
+                            <!--recipe image placeholder-->
+                            <div class="col s12">
+                                <div class="card">
+                                    <div class="card-image">
+                                    <img src="{{url_for('static', filename='images/no-image.jpg')}}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m6">
+                        <div class="row">
+                            <!-- recipe name -->
+                            <div class="row">
+                                <div class="input-field col s12 m10 offset-m1">
+                                    <i class="material-icons prefix">create</i>
+                                    <input id="recipe_name" type="text" name="recipe_name" class="validate" required>
+                                    <label for="recipe_name">Recipe Name</label>
+                                </div>
+                            </div>                           
+                            <!-- recipe category -->
+                            <div class="input-field col s12 m10 offset-m1">
+                                <i class="material-icons prefix">folder_open</i>
+                                <select id="category_name" name="category_name" class="validate" required>
+                                    <option value="" disabled selected>Select Category</option>
+                                        {% for category in categories %}
+                                            <option value="{{ category.category_name}}">{{ category.category_name}}</option>
+                                        {% endfor %}
+                                </select>
+                                <label for="category_name">Recipe Category</label>
+                            </div>
+                            <!-- recipe difficulty level -->
+                            <div class="input-field col s12 m10 offset-m1">
+                                <i class="material-icons prefix">folder_open</i>
+                                <select id="difficulty_level" name="difficulty_level" class="validate" required>
+                                    <option value="" disabled selected>Select Difficulty Level</option>
+                                        {% for difficulty_level in difficulty_levels %}
+                                            <option value="{{ difficulty_level.difficulty_level}}">{{ difficulty_level.difficulty_level }}</option>
+                                        {% endfor %}
+                                </select>
+                                <label for="difficulty_level">Difficulty</label>
+                            </div>
+                            <!--recipe image upload-->
+                            <div class="col s12 m10 offset-m1 file-field input-field">
+                                <div class="btn teal">
+                                    <span>File</span>
+                                    <input type="file" id="recipe_image" name="recipe_image" accept="image/png, image/jpeg, image/jpg"/>
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text" placeholder="Upload your recipe image"/>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!--recipe image upload-->
                 <div class="row">
-                    <div class="col s12 m6 file-field input-field">
-                        <div class="btn teal">
-                            <span>File</span>
-                            <input type="file" id="recipe_image" name="recipe_image" accept="image/png, image/jpeg, image/jpg"/>
+                    <!-- recipe ingredients -->
+                        <div class="input-field col s12 m6">
+                            <i class="material-icons prefix">shopping_cart</i>
+                            <textarea id="ingredients" name="ingredients" class="materialize-textarea validate" required></textarea>
+                            <label for="ingredients">Ingredients</label>
+                            <p class="teal-text">Important! Please enter each ingredient on a new line</p>
                         </div>
-                        <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text" placeholder="Upload your recipe image"/>
+                    <!-- recipe cooking method -->
+                        <div class="input-field col s12 m6">
+                            <i class="material-icons prefix">restaurant</i>
+                            <textarea id="method" name="method" class="materialize-textarea validate" required></textarea>
+                            <label for="method">Cooking method</label>
+                            <p class="teal-text">Important! Please enter each step on a new line</p>
                         </div>
-                    </div>
                 </div>
                 <!-- submit button -->
                 <div class ="row">
