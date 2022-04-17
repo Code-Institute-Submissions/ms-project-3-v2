@@ -96,9 +96,15 @@ def logout():
 
 @app.route("/add_recipe")
 def add_recipe():
-    # wire-up the data from Categories collection on MongoDB
+
+    # wire-up data from Categories and Difficulty Levels collections on MongoDB
     categories = mongo.db.categories.find()
-    return render_template("add_recipe.html", categories=categories)
+    difficulty_levels = mongo.db.difficulty_levels.find()
+    return render_template(
+            "add_recipe.html",
+            categories=categories,
+            difficulty_levels=difficulty_levels
+        )
 
 
 if __name__ == "__main__":
