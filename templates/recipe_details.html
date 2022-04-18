@@ -102,13 +102,18 @@
                     </div>
                 </div>
                 <div class ="row">
+
                     <!-- delete button -->
                     <div class="col s6 right-align">
-                        <a href="{{ url_for('get_recipes') }}" class="btn-large red">Delete Recipe</a>
+                        {% if session.user|lower == recipe.added_by|lower %}
+                            <a href="{{ url_for('get_recipes') }}" class="btn-large red">Delete Recipe</a>
+                        {% endif %}
                     </div>
                     <!-- edit button -->
                     <div class="col s6">
-                        <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-large teal">Edit Recipe</a>
+                        {% if session.user|lower == recipe.added_by|lower %}
+                            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-large teal">Edit Recipe</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
