@@ -106,7 +106,7 @@
                     <!-- delete button -->
                     <div class="col s6 right-align">
                         {% if session.user|lower == recipe.added_by|lower %}
-                            <a href="{{ url_for('get_recipes') }}" class="btn-large red">Delete Recipe</a>
+                            <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn-large red">Delete Recipe</a>
                         {% endif %}
                     </div>
                     <!-- edit button -->

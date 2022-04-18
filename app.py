@@ -156,6 +156,12 @@ def edit_recipe(recipe_id):
         )
 
 
+@app.route("/delete_recipe/<recipe_id>")
+def delete_recipe(recipe_id):
+    mongo.db.recipes.delete_one({"_id": ObjectId(recipe_id)})
+    flash("The recipe was sucessfully deleted")
+    return redirect(url_for("get_recipes"))
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
