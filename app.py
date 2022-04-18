@@ -130,7 +130,7 @@ def recipe_details(recipe_id):
 def edit_recipe(recipe_id):
     # allows user to edit recipe details
     # retrieve recipe to be edited
-    recipe = mongo.db.Recipes.find_one({"_id": ObjectId(recipe_id)})
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
 
     categories = mongo.db.categories.find()
     difficulty_levels = mongo.db.difficulty_levels.find()
