@@ -20,7 +20,7 @@
                         <!-- recipe image -->
                         <div class="row">
                             <div class="col s12">
-                                <a href="#">
+                                <a href="{{ url_for('recipe_details', recipe_id=recipe._id) }}">
                                     <img id="carousel-img" src="{{url_for('static', filename='images/no-image.jpg')}}">
                                 </a>
                             </div>
@@ -29,7 +29,7 @@
                         <div>
                             <div class="row">
                                 <div class="col s12 right-align">
-                                    <a href="#">View Recipe</a>                                   
+                                    <a href="{{ url_for('recipe_details', recipe_id=recipe._id) }}">View Recipe</a>                                   
                                 </div>
                             </div>
                         </div>
