@@ -126,9 +126,22 @@ def recipe_details(recipe_id):
         )
 
 
-@app.route("/edit_recipe/<recipe_id>")
+@app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     # allows user to edit recipe details
+    if request.method == "POST":
+        save_changes = {
+            "recipe_name": request.form.get("recipe_name"),
+            "category_name": request.form.get("category_name"),
+            "difficulty_level": request.form.get("difficulty_level"),
+            "ingredients": request.form.getlist("ingredients"),
+            "method": request.form.getlist("method"),
+            "added_by": session["user"]
+        }
+        mongo.db.recipes.replace_one(
+            {"_id": ObjectId(recipe_id)}, save_changes
+            )
+
     # retrieve recipe to be edited
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
 
