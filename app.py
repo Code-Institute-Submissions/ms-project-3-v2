@@ -126,6 +126,13 @@ def recipe_details(recipe_id):
         )
 
 
+@app.route("/edit_recipe")
+def edit_recipe():
+    # allows user to edit recipe details
+    recipes = mongo.db.recipes.find()
+    return render_template("edit_recipe.html", recipes=recipes)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
