@@ -6,6 +6,13 @@
     <!--Manage meal types-->
     <div class="row center-align border">
         <h4> Edit or Remove Meal types</h4>
+
+        <div class="row">
+            <div class="col">
+                <a href="{{ url_for('add_category') }}" class="btn teal">Add Category</a>
+            </div>
+        </div>
+
         {% for category in categories %}
             <div class="col s12 m4">
                 <div class="card center-align">
