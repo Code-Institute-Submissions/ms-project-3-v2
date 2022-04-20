@@ -75,9 +75,11 @@
                             </div>
                             <div class="row">
                                 <div class="col">
+                                    {% for ingredient in recipe.ingredients %}
                                     <ul>
-                                        <li>{{ recipe.ingredients }}</li>
+                                        <li>{{ ingredient }}</li>
                                     </ul>
+                                    {% endfor %}
                                 </div>
                             </div>
                         </div>
@@ -93,9 +95,11 @@
                             </div>
                             <div class="row">
                                 <div class="div">
+                                    {% for method in recipe.method %}
                                     <ol>
-                                        <li>{{ recipe.method }}</li>
+                                        <li>{{ method }}</li>
                                     </ol>
+                                    {% endfor %}
                                 </div>
                             </div>
                         </div>
