@@ -162,6 +162,13 @@ def delete_recipe(recipe_id):
     flash("The recipe was sucessfully deleted")
     return redirect(url_for("get_recipes"))
 
+
+@app.route("/get_categories")
+def get_categories():
+    categories = list(mongo.db.categories.find())
+    return render_template("categories.html", categories=categories)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
