@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container">
+        <h3 class="center-align blue-grey-text">Add Category</h3>
+        <div class="row">
+            <!-- enctype="multipart/form-data" is required for file upload-->
+            <form class="col s12"  method ="POST" action="{{ url_for('add_category') }}" enctype="multipart/form-data">
+                <div class="row">
+                    <!-- add new category -->
+                    <div class="input-field col s12 m10 offset-m1">
+                        <i class="material-icons prefix">create</i>
+                        <input id="category_name" type="text" name="category_name" class="validate" required>
+                        <label for="category_name">Category Name</label>
+                    </div>  
+                </div>
+                <!-- submit button -->
+                <div class ="row">
+                    <div class="col s12 right-align">
+                        <button type="submit" class="btn-large teal">Add Category</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
