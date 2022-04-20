@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="container">
+        <h3 class="center-align blue-grey-text">Edit Category</h3>
+        <div class="row">
+            <form class="col s12"  method ="POST" action="{{ url_for('edit_category', category_id=category._id) }}">
+                <div class="row">
+                    <!-- add new category -->
+                    <div class="input-field col s12 m10 offset-m1">
+                        <i class="material-icons prefix">create</i>
+                        <input id="category_name" type="text" name="category_name" value="{{ category.category_name}}" class="validate" required>
+                        <label for="category_name">Category Name</label>
+                    </div>  
+                </div>
+
+                <div class ="row">
+                    <!-- cancel button -->
+                    <div class="col s6 right-align">
+                        <a href="{{ url_for('get_categories') }}" class="btn-large red">Cancel</a>
+                    </div>
+                    <!-- submit button -->
+                    <div class="col s6 ">
+                        <button type="submit" class="btn-large teal">Save Changes</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
