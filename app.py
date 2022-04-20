@@ -171,6 +171,12 @@ def get_categories():
 
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
+    """
+    The function provides the user with a form to save a new category to the
+    database. If the function is called using the POST method, then insert the
+    data from the form into the database.
+    Otherwise, display the empty form available to the admin.
+    """
     if request.method == "POST":
         category = {
             "category_name": request.form.get("category_name")
