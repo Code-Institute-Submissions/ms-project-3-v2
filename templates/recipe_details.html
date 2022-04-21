@@ -29,12 +29,12 @@
                     <div class="col s12 m6">
                         <!-- recipe category -->
                         <div class="row">
-                            <div class="col s12 m10 offset-m1">
+                            <div class="col s12 m6 offset-m3">
                                 <div class="row">
-                                    <div class="col s2">
+                                    <div class="col s3">
                                         <i class="material-icons prefix">folder_open</i>
                                     </div>
-                                    <div class="col s10">
+                                    <div class="col s9">
                                         <h6 class="teal-text"><strong>Category:</strong></h6>
                                         <p>{{ recipe.category_name }}</p>
                                     </div>
@@ -43,12 +43,12 @@
                         </div>
                         <!-- recipe difficulty level -->
                         <div class="row">
-                            <div class="col s12 m10 offset-m1">
+                            <div class="col s12 m6 offset-m3">
                                 <div class="row">
-                                    <div class="col s2">
+                                    <div class="col s3">
                                         <i class="material-icons prefix">folder_open</i>
                                     </div>
-                                    <div class="col s10">
+                                    <div class="col s9">
                                         <h6 class="teal-text"><strong>Difficulty:</strong></h6>
                                         <p>{{ recipe.difficulty_level }}</p>
                                     </div>
@@ -57,12 +57,12 @@
                         </div>
                         <!-- recipe author -->
                         <div class="row">
-                            <div class="col s12 m10 offset-m1">
+                            <div class="col s12 m6 offset-m3">
                                 <div class="row">
-                                    <div class="col s2">
+                                    <div class="col s3">
                                         <i class="material-icons prefix">person</i>
                                     </div>
-                                    <div class="col s10">
+                                    <div class="col s9">
                                         <h6 class="teal-text"><strong>Added by: </strong></h6>
                                         <p>{{ recipe.added_by }}</p>
                                     </div>
@@ -75,40 +75,40 @@
                     <!-- recipe ingredients -->
                     <div class="col s12 m6">
                         <div class="row">
-                            <div class="col s2">
+                            <div class="col s1">
                                 <i class="material-icons prefix">shopping_cart</i>
                             </div>
-                            <div class="col s10">
+                            <div class="col s11">
                                 <h6 class="teal-text"><strong>Ingredients:</strong></h6>
                             </div>
-                            <div class="row">
-                                <div class="col">
-                                    {% for ingredient in recipe.ingredients %}
-                                    <ul>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                {% for ingredient in recipe.ingredients %}
+                                    <ul class="browser-default">
                                         <li>{{ ingredient }}</li>
                                     </ul>
-                                    {% endfor %}
-                                </div>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>                       
                     <!-- recipe cooking method -->
                     <div class="col s12 m6">
                         <div class="row">
-                            <div class="col s2">
+                            <div class="col s1">
                                 <i class="material-icons prefix">restaurant</i>
                             </div>
-                            <div class="col s10">
+                            <div class="col s11">
                                 <h6 class="teal-text"><strong>Cooking method:</strong></h6>
                             </div>
-                            <div class="row">
-                                <div class="div">
-                                    {% for method in recipe.method %}
+                        </div>    
+                        <div class="row">
+                            <div class="div s12">
+                                {% for method in recipe.method %}
                                     <ol>
                                         <li>{{ method }}</li>
                                     </ol>
-                                    {% endfor %}
-                                </div>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
