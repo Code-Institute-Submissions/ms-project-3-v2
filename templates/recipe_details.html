@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+
     <div class="container">
         <!-- recipe name -->
         <h3 class="center-align blue-grey-text">{{ recipe.recipe_name }}</h3>
@@ -8,14 +9,17 @@
                 <div class="row">
                     <div class="col s12 m6">
                         <div class="row">
-                            <!--recipe image placeholder-->
+                            <!--recipe image -->
                             <div class="col s12">
                                 <div class="card">
                                     <div class="card-image">
                                         {% if recipe.recipe_image %}
-                                            <img src="{{ recipe.recipe_image }}" alt="Image for {{ recipe.name }}">
+                                            <img src="{{ recipe.recipe_image }}"
+                                                alt="Image for {{ recipe.name }}">
                                         {% else %} 
-                                            <img id="carousel-img" src="{{ url_for('static', filename='images/no-image.jpg') }}">
+                                            <img id="carousel-img"
+                                                src="{{ url_for('static', filename='images/no-image.jpg') }}"
+                                                    alt="Spices on table with cutlery silhouette">
                                         {% endif %}
                                     </div>
                                 </div>
@@ -110,17 +114,18 @@
                     </div>
                 </div>
                 <div class ="row">
-
                     <!-- delete button -->
                     <div class="col s6 right-align">
                         {% if session.user|lower == recipe.added_by|lower %}
-                            <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn-large red">Delete Recipe</a>
+                            <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}"
+                                class="btn-large red">Delete Recipe</a>
                         {% endif %}
                     </div>
                     <!-- edit button -->
                     <div class="col s6">
                         {% if session.user|lower == recipe.added_by|lower %}
-                            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-large teal">Edit Recipe</a>
+                            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}"
+                                class="btn-large teal">Edit Recipe</a>
                         {% endif %}
                     </div>
                 </div>
