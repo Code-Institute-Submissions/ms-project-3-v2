@@ -22,6 +22,10 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_recipes")
 def get_recipes():
+    """
+    Home page.
+    The function displays all recipes from the database in the carousel.
+    """
     recipes = mongo.db.recipes.find()
     return render_template("recipes.html", recipes=recipes)
 
