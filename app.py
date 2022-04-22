@@ -166,6 +166,11 @@ def edit_recipe(recipe_id):
 
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
+    """
+    The function allows the user to delete an existing recipe
+    from the database when the Delete Recipe button is clicked.
+    The user is the redirected to get recipes/home view.
+    """
     mongo.db.recipes.delete_one({"_id": ObjectId(recipe_id)})
     flash("The recipe was sucessfully deleted")
     return redirect(url_for("get_recipes"))
