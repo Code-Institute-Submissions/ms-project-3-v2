@@ -120,6 +120,10 @@ def add_recipe():
 
 @app.route("/recipe_details/<recipe_id>")
 def recipe_details(recipe_id):
+    """
+    The function allows users to see the details of a specific recipe
+    displayed on the carousel after clicking on the "View Recipe" link.
+    """
     return render_template(
         "recipe_details.html", recipe=mongo.db.recipes.find_one(
             {"_id": ObjectId(recipe_id)})
