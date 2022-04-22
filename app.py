@@ -173,6 +173,10 @@ def delete_recipe(recipe_id):
 
 @app.route("/get_categories")
 def get_categories():
+    """
+    The function displays all categories from the database
+    to admin user.
+    """
     categories = list(mongo.db.categories.find())
     return render_template("categories.html", categories=categories)
 
