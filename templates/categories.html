@@ -5,14 +5,13 @@
     <h3 class="center-align blue-grey-text">Manage Categories</h3>
     <!--Manage meal types-->
     <div class="row center-align border">
-        <h4> Edit or Remove Meal types</h4>
-
+        <h4> Remove or Edit Meal types</h4>
         <div class="row">
-            <div class="col">
+            <div class="col s12 right-align">
                 <a href="{{ url_for('add_category') }}" class="btn teal">Add Category</a>
             </div>
         </div>
-
+        <!-- generate card for every category -->
         {% for category in categories %}
             <div class="col s12 m4">
                 <div class="card center-align">
@@ -20,18 +19,15 @@
                         <span class="card-title">{{ category.category_name }}</span>
                     </div>
                     <div class="card-action">
+                        <!-- delete button-->
                         <a href="{{ url_for('delete_category', category_id=category._id) }}" class="btn red">Delete</a>
+                        <!-- edit button-->
                         <a href="{{ url_for('edit_category', category_id=category._id) }}" class="btn teal">Edit</a>
                     </div>
                 </div>
             </div>
         {% endfor %}
     </div>
-
 </div>
-
-
-        
-
 
 {% endblock %}
