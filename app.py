@@ -218,6 +218,16 @@ def edit_category(category_id):
     return render_template("edit_category.html", category=category)
 
 
+@app.route("/delete_category/<category_id>")
+def delete_category(category_id):
+    """
+    The function allows the admin user to delete an existing category
+    from the database when the Delete button is clicked.
+    The user is the redirected to manage categories view.
+    """
+    mongo.db.categories.delete_one({"_id": ObjectId(category_id)})
+    return redirect(url_for("get_categories"))
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
