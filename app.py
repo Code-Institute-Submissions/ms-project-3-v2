@@ -120,11 +120,17 @@ def logout():
 
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
+    """
+    The function provides the user with a form to save a new recipe to the
+    database. If the function is called using the POST method, then insert the
+    data from the form into the database. Otherwise, display the empty form .
+    """
     if request.method == "POST":
         recipe = {
             "recipe_name": request.form.get("recipe_name"),
             "category_name": request.form.get("category_name"),
             "difficulty_level": request.form.get("difficulty_level"),
+            "recipe_image": request.form.get("recipe_image"),
             "ingredients": request.form.getlist("ingredients"),
             "method": request.form.getlist("method"),
             "added_by": session["user"]
@@ -132,7 +138,6 @@ def add_recipe():
         mongo.db.recipes.insert_one(recipe)
         return redirect(url_for("get_recipes"))
 
-    # wire-up data from Categories and Difficulty Levels collections on MongoDB
     categories = mongo.db.categories.find()
     difficulty_levels = mongo.db.difficulty_levels.find()
     return render_template(
