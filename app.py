@@ -32,6 +32,12 @@ def get_recipes():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    """
+    The function allows to register a new user. If a username already
+    exists in the database then a message is displayed and the user
+    is redirected to the register view. Otherwise, a new user account is
+    created and the user is redirected to user's profile page.
+    """
     if request.method == "POST":
         # check if username already exists in the db
         existing_user = mongo.db.users.find_one(
@@ -51,11 +57,18 @@ def register():
         session["user"] = request.form.get("username").lower()
         flash("Registration complete!")
         return redirect(url_for("profile", username=session["user"]))
+
     return render_template("register.html")
 
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    """
+    The function allows an existing user to login. If username and
+    password combination matches to the record stored in the database,
+    then the user is taken to the user's profile view. Otherwise, a message
+    is displayed and the user is redirected to the login view.
+    """
     if request.method == "POST":
         # check if username exists in db
         existing_user = mongo.db.users.find_one(
@@ -82,6 +95,10 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
+    """
+    The function allows an existing user to view his/her
+    profile page.
+    """
     # get session user's username from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
@@ -236,6 +253,7 @@ def delete_category(category_id):
     """
     mongo.db.categories.delete_one({"_id": ObjectId(category_id)})
     return redirect(url_for("get_categories"))
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
