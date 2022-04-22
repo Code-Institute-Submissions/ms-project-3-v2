@@ -2,49 +2,51 @@
 {% block content %}
 
     <div class="container blue-grey-text">
-        <h4 class="center-align">Explore our huge selection of Easy Cooking ideas</h3>
+        <h4 class="center-align">Welcome to Easy Cooking!</h3>
+        <h5 class="center-align">Explore our selection of cooking ideas and share your favourite recipes.</h5>
+        <p class="center-align">You will need to register for a free account in order to add your own recipes.</p>
         <!-- carousel from Materialize -->
         <div class="row border">
             <div class="col s12">
                 <div class="carousel">
                     {% for recipe in recipes %}
-                    <div class="carousel-item">
-                        <!-- recipe name, category and difficulty -->
-                        <div class="row">
-                            <div class="col s12 center-align">
-                                <h4 class="teal-text">{{ recipe.recipe_name }}</h6>
-                                <p class="blue-grey-text">
-                                    <span><strong>Category: </strong></span>
-                                    {{ recipe.category_name }}
-                                </p>
-                                <p class="blue-grey-text"><span><strong>Difficulty: </strong></span>
-                                    {{ recipe.difficulty_level }}
-                                </p>
-                            </div>
-                        </div>
-                        <!-- recipe image -->
-                        <div class="row">
-                            <div class="col s12">
-                                <a href="{{ url_for('recipe_details', recipe_id=recipe._id) }}">
-                                {% if recipe.recipe_image %}
-                                    <img  class="carousel-img" src="{{ recipe.recipe_image }}"
-                                        alt="Image for {{ recipe.name }}">
-                                {% else %} 
-                                    <img class="carousel-img" src="{{ url_for('static', filename='images/no-image.jpg') }}"
-                                        alt="Spices on table with cutlery silhouette">
-                                {% endif %}
-                                </a>
-                            </div>
-                        </div>
-                        <!-- link to view recipe details -->
-                        <div>
+                        <div class="carousel-item">
+                            <!-- recipe name, category and difficulty -->
                             <div class="row">
-                                <div class="col s12 right-align">
-                                    <a href="{{ url_for('recipe_details', recipe_id=recipe._id) }}">View Recipe</a>                                   
+                                <div class="col s12 center-align">
+                                    <h5 class="teal-text recipe-name">{{ recipe.recipe_name }}</h5>
+                                    <p class="blue-grey-text recipe-name">
+                                        <span><strong>Category: </strong></span>
+                                        {{ recipe.category_name }}
+                                    </p>
+                                    <p class="blue-grey-text recipe-name"><span><strong>Difficulty: </strong></span>
+                                        {{ recipe.difficulty_level }}
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- recipe image -->
+                            <div class="row">
+                                <div class="col s12">
+                                    <a href="{{ url_for('recipe_details', recipe_id=recipe._id) }}">
+                                    {% if recipe.recipe_image %}
+                                        <img  class="carousel-img" src="{{ recipe.recipe_image }}"
+                                            alt="Image for {{ recipe.name }}">
+                                    {% else %} 
+                                        <img class="carousel-img" src="{{ url_for('static', filename='images/no-image.jpg') }}"
+                                            alt="Spices on table with cutlery silhouette">
+                                    {% endif %}
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- link to view recipe details -->
+                            <div>
+                                <div class="row">
+                                    <div class="col s12 right-align">
+                                        <a class="recipe-name" href="{{ url_for('recipe_details', recipe_id=recipe._id) }}">View Recipe</a>                                   
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     {% endfor %}
                 </div>
             </div>
