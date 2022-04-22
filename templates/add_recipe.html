@@ -12,7 +12,7 @@
                             <div class="col s12">
                                 <div class="card">
                                     <div class="card-image">
-                                    <img src="{{url_for('static', filename='images/no-image.jpg')}}">
+                                        <img src="{{url_for('static', filename='images/no-image.jpg')}}">
                                     </div>
                                 </div>
                             </div>
@@ -48,22 +48,12 @@
                                 </select>
                                 <label for="difficulty_level">Difficulty</label>
                             </div>
-                            <!--recipe image upload-->
+                            <!-- link to recipe image -->
                             <div class="input-field col s12 m10 offset-m1">
                                 <i class="material-icons prefix">create</i>
-                                <input id="recipe_name" type="text" name="recipe_name" class="validate" required>
-                                <label for="recipe_name">Recipe Name</label>
+                                <input id="recipe_image" type="text" name="recipe_image" class="validate">
+                                <label for="recipe_name">Add the link to your image here (optional)</label>
                             </div> 
-                            
-                            <div class="col s12 m10 offset-m1 file-field input-field">
-                                <div class="btn teal">
-                                    <span>Save Link</span>
-                                    <input type="file" id="recipe_image" name="recipe_image" accept="image/png, image/jpeg, image/jpg"/>
-                                </div>
-                                <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text" placeholder="Upload your recipe image"/>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
