@@ -161,12 +161,17 @@ def recipe_details(recipe_id):
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
-    # allows user to edit recipe details
+    """
+    The function allows the user to edit an existing recipe.
+    If the function is called using the POST method, then update the
+    data from the form in the database.
+    """
     if request.method == "POST":
         save_changes = {
             "recipe_name": request.form.get("recipe_name"),
             "category_name": request.form.get("category_name"),
             "difficulty_level": request.form.get("difficulty_level"),
+            "recipe_image": request.form.get("recipe_image"),
             "ingredients": request.form.getlist("ingredients"),
             "method": request.form.getlist("method"),
             "added_by": session["user"]
